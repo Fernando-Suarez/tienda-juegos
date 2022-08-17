@@ -1,6 +1,9 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavBar from './components/NavBar/NavBar'
+import {NavBar} from './components/NavBar/NavBar'
+import {ItemListContainer}  from './components/ItemListContainer/ItemListContainer';
+
+
 
 
 
@@ -9,6 +12,11 @@ function App() {
     <div className="App">
       <NavBar>
       </NavBar>
+      <header className='App-header'>
+      
+      <ItemListContainer></ItemListContainer>
+
+      </header>
     </div>
   );
 }
