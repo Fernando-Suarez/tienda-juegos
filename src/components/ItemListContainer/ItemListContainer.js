@@ -1,7 +1,8 @@
-export function ItemListContainer() {
+import './ItemListContainer.css'
+export function ItemListContainer({greeting}) {
     return(
         <>
-        <h2>Texto provisional</h2>
+        <h1 className="principal-title">{greeting}</h1>
         </>
     )
 }

@@ -14,7 +14,7 @@ function App() {
       </NavBar>
       <header className='App-header'>
       
-      <ItemListContainer></ItemListContainer>
+      <ItemListContainer greeting="Texto provisional"></ItemListContainer>
 
       </header>
     </div>
