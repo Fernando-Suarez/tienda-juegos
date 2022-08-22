@@ -23,7 +23,7 @@ useEffect(()=>{
         <div>
             <Button onClick={increase} variant="secondary" size="lg" disabled={count >= stock} > + </Button>
 
-            <span>  {count}  </span>
+            <span> {count} </span>
 
             <Button onClick={decrease} variant="secondary" size="lg" disabled={count <= 1 } > - </Button>
             
