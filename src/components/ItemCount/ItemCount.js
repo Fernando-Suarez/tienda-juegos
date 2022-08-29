@@ -1,6 +1,6 @@
 
 import { Button } from 'react-bootstrap'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 export const ItemCount = ({initial,stock,onAdd}) => {
 const [count, setCount ] = useState(initial)
@@ -13,11 +13,7 @@ const increase = () => {
 const decrease = () => {
     setCount( count - 1)
 }
-// se vuelve a resetear cada vez que cambia el valor de "initial"
-useEffect(()=>{
-    setCount(initial);
-}, [initial])
-    
+
     return  (
         
         <div>
