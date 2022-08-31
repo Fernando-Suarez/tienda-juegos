@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {NavBar} from './components/NavBar/NavBar'
 import {ItemListContainer}  from './components/ItemListContainer/ItemListContainer';
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 
@@ -10,16 +11,22 @@ import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetail
 
 function App() {
   return (
-    <div className="App">
-      <NavBar>
-      </NavBar>
-      <header className='App-header'>
-      
-      <ItemListContainer greeting="Texto provisional"></ItemListContainer>
-      
-      </header>
-      <ItemDetailContainer></ItemDetailContainer>
-    </div>
+    
+    <BrowserRouter>
+      <div className="App">
+          <header>
+            <NavBar></NavBar>
+          </header>
+          <div className='custom-body'>
+            <Routes>
+            <Route path="/" element={<ItemListContainer greeting="Tienda Juegos"></ItemListContainer>}></Route>
+            <Route path="/categoria/:categoriaId" element={<ItemListContainer greeting="Tienda Juegos"></ItemListContainer>}></Route>
+            <Route path="/detalle/:detalleId" element={<ItemDetailContainer></ItemDetailContainer>}></Route>
+            </Routes>
+          </div>    
+      </div>
+    </BrowserRouter>
+    
   );
 }
 

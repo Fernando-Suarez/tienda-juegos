@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import {CartWidget} from '../CartWidget/CartWidget'
 import { NavLogo } from '../NavLogo/NavLogo';
+import {NavLink} from 'react-router-dom'
 
 
 export function NavBar() {
@@ -10,15 +11,16 @@ export function NavBar() {
     <>
       <Navbar bg="dark" variant="dark">
         <Container>
-        <Navbar.Brand href="#home">
+        <NavLink to="/" className='navbar-brand'>
             <NavLogo></NavLogo> 
             {' '}
             Tienda Juegos
-          </Navbar.Brand>
+          </NavLink>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#juegos">Juegos</Nav.Link>
-            <Nav.Link href="#contacto">Contacto</Nav.Link>
+            <NavLink to="/categoria/ps4" className="nav-link">Ps4</NavLink>
+            <NavLink to="/categoria/ps5" className="nav-link">Ps5</NavLink>
+            <NavLink to="/categoria/xbox" className="nav-link">Xbox</NavLink>
+            <NavLink to="/categoria/nintendo" className="nav-link">Nintendo</NavLink>
           </Nav>
           <Navbar.Brand>
           <CartWidget></CartWidget>
