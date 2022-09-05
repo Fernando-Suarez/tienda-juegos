@@ -23,7 +23,7 @@ export function NavBar() {
             <NavLink to="/categoria/nintendo" className="nav-link">Nintendo</NavLink>
           </Nav>
           <Navbar.Brand>
-          <CartWidget></CartWidget>
+          <NavLink to="/cart"><CartWidget></CartWidget></NavLink>
           </Navbar.Brand>
           
         </Container>

@@ -1,5 +1,4 @@
 import React, {useState,useEffect} from 'react';
-import { ItemCount } from '../ItemCount/ItemCount'
 import { ItemList } from '../ItemList/ItemList';
 import { getJuegos } from '../../helper/helper';
 import {useParams} from 'react-router-dom'
@@ -10,7 +9,9 @@ export function ItemListContainer({greeting}) {
     //variable de estado inicializada en un array vacio
 
     const [items,setItems] = useState([])
+
     //variable con parametro de ruta
+    
     const {categoriaId} = useParams();
 
     useEffect(() =>{
@@ -27,14 +28,10 @@ export function ItemListContainer({greeting}) {
         //le pasamos al arreglo de dependencias la variable con el parametro de ruta para que renderice cada vez que cambie
     },[categoriaId])
 
-    const onAdd = (quantity) => {
-        console.log(`Se agregaron ${quantity} productos al carrito`);
-    }
 
     return(
         <>
         <h1 className="principal-title">{greeting}</h1>
-        <ItemCount initial={1} stock={5} onAdd={onAdd}></ItemCount>
         <ItemList items={items}></ItemList>
         </>
     )
