@@ -1,20 +1,25 @@
-import React from 'react'
+import React, {useState,useContext} from 'react'
+import { CartContext } from '../../context/CartContext'
 import './ItemDetail.css'
 import { ItemCount } from '../ItemCount/ItemCount'
-import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 
 
 export const ItemDetail = ({item}) => {
+  
+  const {addItem} = useContext(CartContext)
 
   const [irCarrito,setIrCarrito] = useState(false);
   
 
   const onAdd = (quantity) => {
     setIrCarrito(true);
+    addItem(item,quantity);
+    
+    
 }
-
+  
   return (
     <div className='custom-detail'>
       <div>

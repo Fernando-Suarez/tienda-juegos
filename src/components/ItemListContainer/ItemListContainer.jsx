@@ -28,7 +28,7 @@ export function ItemListContainer({greeting}) {
         //le pasamos al arreglo de dependencias la variable con el parametro de ruta para que renderice cada vez que cambie
     },[categoriaId])
 
-
+    
     return(
         <>
         <h1 className="principal-title">{greeting}</h1>
