@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import { ItemList } from '../ItemList/ItemList';
-import { getJuegos } from '../../helper/helper';
+import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore';
 import {useParams} from 'react-router-dom'
 import './ItemListContainer.css'
 
@@ -14,20 +14,22 @@ export function ItemListContainer({greeting}) {
     
     const {categoriaId} = useParams();
 
+    
     useEffect(() =>{
+        const DB = getFirestore()
+        const dbCollection = collection(DB, 'products')
         //si el parametro de ruta no esta vacio entonces se obtiene una respuesta que luego filtramos por categoria y la seteamos
-        
         if(categoriaId){
-        getJuegos.then(res => setItems(res.filter(juego => juego.category ===categoriaId)));
+            const queryFilter = query(dbCollection, where('category','==', categoriaId))
+            getDocs(queryFilter).then(res => setItems(res.docs.map(product => ({id: product.id, ...product.data()}))))
 
-        //si el parametro de ruta esta vacio entonces obtenemos la respuesta con todos los productos
+        // si el parametro de ruta esta vacio entonces obtenemos la respuesta con todos los productos
         }else{
-            
-            getJuegos.then(res => setItems(res));
+            getDocs(dbCollection).then(res => setItems(res.docs.map(product => ({id: product.id, ...product.data()}))))
         }
-        //le pasamos al arreglo de dependencias la variable con el parametro de ruta para que renderice cada vez que cambie
+        // le pasamos al arreglo de dependencias la variable con el parametro de ruta para que renderice cada vez que cambie
     },[categoriaId])
-
+    
     
     return(
         <>

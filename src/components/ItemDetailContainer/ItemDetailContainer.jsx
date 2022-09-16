@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { getJuegos } from '../../helper/helper';
 import { ItemDetail } from '../ItemDetail/ItemDetail'
 import {useParams} from 'react-router-dom'
+import {getFirestore, doc,getDoc} from 'firebase/firestore'
 
 export const ItemDetailContainer = () => {
     const [item,setItem] = useState({});
@@ -9,8 +9,14 @@ export const ItemDetailContainer = () => {
     const {detalleId} = useParams();
 
   useEffect(()=>{
-    getJuegos.then(res => setItem(res.find(juego => juego.id=== parseInt(detalleId))))
-  },)
+    // creo una variable DB que trae el servicio de firestore
+    const DB = getFirestore()
+    // crea un puntero al dato que queremos traer
+    const dbDoc = doc(DB,'products',detalleId)
+    // traer el dato con una promesa
+    getDoc(dbDoc).then(res => setItem({id: res.id, ...res.data()}))
+    
+  },[detalleId])
     
   return (
     <ItemDetail item={item}></ItemDetail>
