@@ -3,10 +3,12 @@ import { Button, Container,Row } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
 import { ItemCart } from '../ItemCart/ItemCart'
+import { OrderForm } from '../OrderForm/OrderForm'
 import './Cart.css'
 
 export const Cart = () => {
-  const {cart,totalPrice} = useContext(CartContext)
+  const {cart,totalPrice,clear} = useContext(CartContext)
+  
   
   if (cart.length === 0) {
     return(
@@ -16,7 +18,7 @@ export const Cart = () => {
       </>
     )
   }
-  
+
   return (
     <>
     <Container>
@@ -24,10 +26,17 @@ export const Cart = () => {
     {
       cart.map(product => <ItemCart key={product.id} product={product}></ItemCart>)
     }
-    
+        
     </Row>
+    <div>
+    <Button variant='primary' size='xs' onClick={() => {clear()}} >Limpiar Carrito</Button>
+    </div>
     <p className='custom-cart'> Total: ${totalPrice()}</p>
+    
     </Container>
+
+      <OrderForm></OrderForm>
     </>
+    
   )
 }
