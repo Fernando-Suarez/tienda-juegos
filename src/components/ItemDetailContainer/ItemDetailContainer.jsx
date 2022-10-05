@@ -2,9 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { ItemDetail } from '../ItemDetail/ItemDetail'
 import {useParams} from 'react-router-dom'
 import {getFirestore, doc,getDoc} from 'firebase/firestore'
+import { Loader } from '../Loader/Loader'
+
 
 export const ItemDetailContainer = () => {
     const [item,setItem] = useState({});
+    const [loading,setLoading] =useState(true)
+
+
+
 
     const {detalleId} = useParams();
 
@@ -15,10 +21,14 @@ export const ItemDetailContainer = () => {
     const dbDoc = doc(DB,'products',detalleId)
     // traer el dato con una promesa
     getDoc(dbDoc).then(res => setItem({id: res.id, ...res.data()}))
+    setLoading(false)
     
   },[detalleId])
     
   return (
-    <ItemDetail item={item}></ItemDetail>
+    <>
+      { loading ? <Loader></Loader>  
+      : <ItemDetail item={item}></ItemDetail>}
+    </>
   )
 }

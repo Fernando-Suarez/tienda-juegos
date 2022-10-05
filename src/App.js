@@ -1,3 +1,4 @@
+import React from 'react'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {NavBar} from './components/NavBar/NavBar'
@@ -6,6 +7,10 @@ import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetail
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import {Cart} from './components/Cart/Cart.jsx'
 import {CartProvider} from './context/CartContext'
+import {Carrousel} from './components/Carrousel/Carrousel.jsx'
+import { Footer } from './components/Footer/Footer';
+
+
 
 
 
@@ -14,25 +19,27 @@ import {CartProvider} from './context/CartContext'
 
 function App() {
   return (
-    
+    <>
     <BrowserRouter>
     <CartProvider>
       <div className="App">
           <header>
-            <NavBar></NavBar>
+            <NavBar/>
+            <Carrousel></Carrousel>
           </header>
           <div className='custom-body'>
             <Routes>
-            <Route path="/" element={<ItemListContainer greeting="Tienda Juegos"></ItemListContainer>}></Route>
-            <Route path="/categoria/:categoriaId" element={<ItemListContainer greeting="Tienda Juegos"></ItemListContainer>}></Route>
-            <Route path="/detalle/:detalleId" element={<ItemDetailContainer></ItemDetailContainer>}></Route>
-            <Route path='/cart' element={<Cart></Cart>}></Route>
+            <Route path="/" element={<ItemListContainer greeting="GAME OVER"></ItemListContainer>}/>
+            <Route path="/categoria/:categoriaId" element={<ItemListContainer greeting="GAME OVER"></ItemListContainer>}></Route>
+            <Route path="/detalle/:detalleId" element={<ItemDetailContainer/>}/>
+            <Route path='/cart' element={<Cart/>}/>
             </Routes>
-          </div>    
+          </div>  
+          <Footer></Footer>  
       </div>
     </CartProvider>    
     </BrowserRouter>
-    
+    </>
   );
 }
 

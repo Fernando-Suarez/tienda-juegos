@@ -8,7 +8,8 @@
 }
 
 .custom-body {
-  background-color: black;
+  background-image: url('./img/fondo.jpg');
+  background-size:auto;
 }
 
 @media (prefers-reduced-motion: no-preference) {

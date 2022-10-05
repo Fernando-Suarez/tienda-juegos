@@ -1,10 +1,11 @@
 import React, {useContext} from 'react'
-import { Button, Container,Row } from 'react-bootstrap'
-import { NavLink } from 'react-router-dom'
+import { Button, ButtonGroup, Container,Row } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
 import { ItemCart } from '../ItemCart/ItemCart'
-import { OrderForm } from '../OrderForm/OrderForm'
+import { FormOrder } from '../OrderForm/FormOrder'
 import './Cart.css'
+import emptyCart from '../../img/emptycart.png'
 
 export const Cart = () => {
   const {cart,totalPrice,clear} = useContext(CartContext)
@@ -13,8 +14,11 @@ export const Cart = () => {
   if (cart.length === 0) {
     return(
       <>
+        <div>
+        <img src={emptyCart} alt='carrito vacio'></img>
+        </div>
         <p className='custom-cart'>No Hay elementos en el carrito</p>
-        <NavLink to="/" className='nav-link'><Button variant='primary' size='lg'>Hacer compras</Button></NavLink>
+        <Link to="/" className='nav-link'><Button variant='primary' size='lg'>Hacer compras</Button></Link>
       </>
     )
   }
@@ -28,14 +32,21 @@ export const Cart = () => {
     }
         
     </Row>
-    <div>
-    <Button variant='primary' size='xs' onClick={() => {clear()}} >Limpiar Carrito</Button>
+    <div className='col-xs-3'>
+    <ButtonGroup aria-label="First group"> 
+      <Button variant='primary' size='xs' onClick={() => {clear()}}>Limpiar Carrito</Button></ButtonGroup>{' '}
+      <ButtonGroup aria-label='Second group'>
+      <Link to='/'><Button variant='primary' size='xs'>Seguir Comprando</Button></Link> </ButtonGroup>
     </div>
-    <p className='custom-cart'> Total: ${totalPrice()}</p>
+    <div>
+    <p className='custom-cartPrice'> Total: ${totalPrice()}</p>
+    </div>
+    <div>
+      <FormOrder/>
+      
+    </div>
     
     </Container>
-
-      <OrderForm></OrderForm>
     </>
     
   )

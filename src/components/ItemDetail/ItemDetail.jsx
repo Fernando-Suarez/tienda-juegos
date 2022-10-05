@@ -6,11 +6,17 @@ import { NavLink } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 
 
+
+
+
 export const ItemDetail = ({item}) => {
   
   const {addItem} = useContext(CartContext)
 
   const [irCarrito,setIrCarrito] = useState(false);
+
+
+
   
 
   const onAdd = (quantity) => {
@@ -18,20 +24,21 @@ export const ItemDetail = ({item}) => {
     addItem(item,quantity);
     
     
+    
 }
   
   return (
+    <>
     <div className='custom-detail'>
       <div>
-          <img src={item.image} alt="Imagen"></img>
-      </div>    
-      <div>    
+          <img src={item.image} alt="imagen"></img>
           <h1>{item.title}</h1>
           <h2>{item.description}</h2>
       </div>
       { irCarrito
-      ? <NavLink to="/cart"><Button variant="primary" size="lg">Ir al Carrito</Button></NavLink>
+      ? <NavLink to="/cart"><Button variant="primary" size="lg" >Ir al Carrito</Button></NavLink>
       : <ItemCount initial={1} stock={item.stock} onAdd={onAdd}></ItemCount> }
     </div>
+    </>
   )
 }
