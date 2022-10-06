@@ -5,7 +5,9 @@ Este proyecto está destinado al curso de React.Js impartido por Coder House, en
 ### Estado del proyecto
 
 Finalizado
-    [![Alt text](https://img.youtube.com/vi/djHGX194VCE/0.jpg)](https://www.youtube.com/watch?v=djHGX194VCE)
+
+
+[![Alt text](https://img.youtube.com/vi/djHGX194VCE/0.jpg)](https://www.youtube.com/watch?v=djHGX194VCE)
 
 ### Dependencias Descargadas
 
@@ -34,7 +36,7 @@ Finalizado
 
 -    Material UI
 
-    Se utiliza Material UI solo en los iconos.
+     Se utiliza Material UI solo en los iconos.
     [https://fontawesome.com/v5/docs/web/use-with/react](https://fontawesome.com/v5/docs/web/use-with/react)
 
 ### Módulos y Hooks utilizados
