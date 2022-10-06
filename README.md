@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# Tienda Web - Coder House
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto está destinado al curso de React.Js impartido por Coder House, en el mismo se realizara una tienda web. El progreso del mismo se verá reflejado aqui con explicación e imagenes.  
 
-## Available Scripts
+### Estado del proyecto
 
-In the project directory, you can run:
+Finalizado
+    [![Alt text](https://img.youtube.com/vi/djHGX194VCE/0.jpg)](https://www.youtube.com/watch?v=djHGX194VCE)
 
-### `npm start`
+### Dependencias Descargadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+-   React-Bootstrap
 
-### `npm test`
+    Se utiliza react-bootstrap y  clases de bootsrap en algunos componentes para dar estilos.
+    [https://getbootstrap.com/](https://getbootstrap.com/)
+    [https://react-bootstrap.github.io/](https://react-bootstrap.github.io/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-    React-Router-Dom
 
-### `npm run build`
+     Se utiliza react-router-dom por ser esencial a la hora de controlar las rutas navegables de nuestra aplicación.
+     [https://reactrouter.com/en/v6.3.0/getting-started/installation](https://reactrouter.com/en/v6.3.0/getting-started/installation)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-    Firebase
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+     Se utiliza firebase como conexión con nuestra db de los productos y ordenes
+    [https://firebase.google.com/docs/web/setup](https://firebase.google.com/docs/web/setup)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-    Formik
 
-### `npm run eject`
+     Se utiliza Formik para la creacion y control del formulario.  
+    [https://formik.org/docs/overview](https://formik.org/docs/overview)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-    Material UI
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    Se utiliza Material UI solo en los iconos.
+    [https://fontawesome.com/v5/docs/web/use-with/react](https://fontawesome.com/v5/docs/web/use-with/react)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Módulos y Hooks utilizados
 
-## Learn More
+1.    useState:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+      Usado para generar estados locales de nuestro componente y así guardarlos y modificarlos posteriormente.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2.    useEffect:
 
-### Code Splitting
+      Usado para montar y hacer un render de los componentes solo cuando es necesario mostrarlos.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3.    useParam:
 
-### Analyzing the Bundle Size
+      Usado para capturar lo enviado por la url.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+4.    Fetch:
 
-### Making a Progressive Web App
+      Usado para el consumo de API's y promesas.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+5.    BrowserRouter, Routes y Route:
 
-### Advanced Configuration
+      HOC que engloba a otros componentes y definimos las rutas navegables de nuestra aplicación.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+6.    Firebase:
 
-### Deployment
+      Se utiliza Firebase y Firestore para la gestión de la base de datos y su respuesta en las peticiones asincronas.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Para poder ver la aplicación desde local
 
-### `npm run build` fails to minify
+1.    Desde la opción Code copiamos el link de HTTPS:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+      [https://github.com/Fernando-Suarez/tienda-juegos.git](https://github.com/Fernando-Suarez/tienda-juegos.git)
+
+2.    En nuestro pc levantamos git bash o la consola y ejecutamos el siguiente comando:
+
+      git clone [https://github.com/Fernando-Suarez/tienda-juegos.git](https://github.com/Fernando-Suarez/tienda-juegos.git)
+
+ 3.   Abrimos nuestro editor de texto navegamos a nuestra carpeta raiz del proyecto clonado y en la consola ejecutamos:
+
+      npm install
+
+ 4.   Finalmente en la misma consola ejecutamos el siguiente comando para levantar nuestro servidor de react:
+
+      npm start
+
